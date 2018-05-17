@@ -16,5 +16,12 @@ public class IntToEngTest {
 		String actual = ite.translateEng(1);
 		assertThat(actual, is(expected));
 	}
+	@Test
+	public void 整数値34がthirtyfourと変換される() {
+		IntToEng ite = new IntToEng();
+		String expected = "thirty four";
+		String actual = ite.translateEng2(34);
+		assertThat(actual, is(expected));
+	}
 
 }
