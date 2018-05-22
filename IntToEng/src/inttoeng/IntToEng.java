@@ -33,6 +33,7 @@ public class IntToEng {
 	public static String translateEng4(int n) {//100
 		eng = "one hundred";
 		return eng;
+		
 	}
 	public static String translateEng3(int n) {//11〜19
 	    	
