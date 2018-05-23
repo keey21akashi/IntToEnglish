@@ -38,17 +38,24 @@ public class IntToEngTest {
 		assertThat(actual, is(expected));
 	}
 	@Test
-	public void 整数値100がonehundredと変換される() {
+	public void 整数値100がone_hundredと変換される() {//100の倍数
 		IntToEng ite = new IntToEng();
-		String expected = "one hundred  ";
-		String actual = ite.translateEng(100) +  " " + ite.translateEng4(100) +  " " + ite.translateEng2(100) +  " " + ite.translateEng(100%10);
+		String expected = "one hundred";
+		String actual = ite.translateEng(100) + " " + ite.translateEng4(100);
 		assertThat(actual, is(expected));
 	}
 	@Test
-	public void 整数値234がonehundredと変換される() {
+	public void 整数値314がthree_hundred_and_fourteenと変換される() {//
 		IntToEng ite = new IntToEng();
-		String expected = "two hundred thirty four";
-		String actual = ite.translateEng(234) +  " " + ite.translateEng4(234) +  " " + ite.translateEng2(234) +  " " + ite.translateEng(234%10);
+		String expected = "three hundred and fourteen";
+		String actual = ite.translateEng(314) + " " + ite.translateEng4(314) + " and " + ite.translateEng3(314);
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void 整数値234がtwo_hundred_and_thirty_fourと変換される() {
+		IntToEng ite = new IntToEng();
+		String expected = "two hundred and thirty four";
+		String actual = ite.translateEng(234) +  " " + ite.translateEng4(234) +  " and " + ite.translateEng2(234) +  " " + ite.translateEng(234%10);
 		assertThat(actual, is(expected));
 	}
 	
