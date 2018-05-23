@@ -24,13 +24,7 @@ public class IntToEng {
 				System.out.println(translateEng(input) + " " + translateEng4(input) + " and " + translateEng3(input));
 			}else if(input / 100 >= 1 && input / 100 < 10) {//上記以外の3桁
 				System.out.println(translateEng(input) + " " + translateEng4(input) + " and " + translateEng2(input) + " " + translateEng(input%10));
-			}else if (input % 1000 == 0) {//1000の倍数
-				System.out.println(translateEng(input) + " " + translateEng5(input));
 			}
-	}
-	public static String translateEng5(int n) {//1000
-		eng = "thousand";
-		return eng;	
 	}
 	public static String translateEng4(int n) {//100
 		eng = "hundred";
@@ -122,14 +116,9 @@ public class IntToEng {
     		n %= 10;
     	}else if(n>99 && n<1000){
     		n /= 100;
-    	}else if(n>999 && n<10000){
-    		n /= 1000;
     	}
     	
     	switch (n) {
-       case 0:
-        	eng ="zero";
-        	break;
         case 1:
         	eng ="one";
         	break;

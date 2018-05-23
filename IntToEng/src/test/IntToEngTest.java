@@ -9,13 +9,6 @@ import inttoeng.IntToEng;
 
 public class IntToEngTest {
 	@Test
-	public void 整数値0がzeroと変換される() {
-		IntToEng ite = new IntToEng();
-		String expected = "zero";
-		String actual = ite.translateEng(0);
-		assertThat(actual, is(expected));
-	}
-	@Test
 	public void 整数値１がoneと変換される() {
 		IntToEng ite = new IntToEng();
 		String expected = "one";
@@ -62,13 +55,6 @@ public class IntToEngTest {
 		IntToEng ite = new IntToEng();
 		String expected = "two hundred and thirty four";
 		String actual = ite.translateEng(234) +  " " + ite.translateEng4(234) +  " and " + ite.translateEng2(234) +  " " + ite.translateEng(234%10);
-		assertThat(actual, is(expected));
-	}
-	@Test
-	public void 整数値2000がtwo_thousandと変換される() {
-		IntToEng ite = new IntToEng();
-		String expected = "two thousand";
-		String actual = ite.translateEng(2000) + " " + ite.translateEng5(2000);
 		assertThat(actual, is(expected));
 	}
 
