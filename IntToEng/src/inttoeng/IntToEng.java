@@ -11,14 +11,19 @@ public class IntToEng {
 		  Scanner sc = new Scanner(System.in);
 	        int input = sc.nextInt();
 	        
+	        
 			if (input / 10 == 0) {//0~9,translateEng
 				System.out.println(translateEng(input));
 			} else if (input / 10 == 1) {//10~19,translateEng3
 				System.out.println(translateEng3(input));
 			} else if (input / 10 > 1 && input/10 <= 9) {//20~99,translateEng2+1
 				System.out.println(translateEng2(input) + " " + translateEng(input));
-			} else if (input /10 >= 10){
-				System.out.println(translateEng(input) + " " + translateEng4(input) + " " + translateEng2(input)+ " " + translateEng(input%10));
+			} else if (input % 100 == 0){//100の倍数
+				System.out.println(translateEng(input) + " " + translateEng4(input));
+			}else if(input % 100 >=  10 && input % 100 <= 19) {//下２桁が10~19
+				System.out.println(translateEng(input) + " " + translateEng4(input) + " and " + translateEng3(input));
+			}else if(input / 100 >= 1 && input / 100 < 10) {//上記以外の3桁
+				System.out.println(translateEng(input) + " " + translateEng4(input) + " and " + translateEng2(input)+ " " + translateEng(input%10));
 			}
 	}
 	public static String translateEng4(int n) {//100
@@ -46,7 +51,7 @@ public class IntToEng {
 	    		eng ="fourteen";
 	    		break;
 	        case 5:
-	        	eng ="fiveteen";
+	        	eng ="fifteen";
 	        	break;
 	        case 6:
 	        	eng ="sixteen";
