@@ -11,27 +11,18 @@ public class IntToEng {
 		  Scanner sc = new Scanner(System.in);
 	        int input = sc.nextInt();
 	        
-	       /* if(input<=9){
-	        System.out.println(translateEng(input));
-	        }else if(input<=99){
-		        System.out.println(translateEng2(input));
-	        }*/
-
 			if (input / 10 == 0) {//0~9,translateEng
-				//label.setText (translateEng(input));
 				System.out.println(translateEng(input));
 			} else if (input / 10 == 1) {//10~19,translateEng3
-				//label.setText (printTeen(input));
 				System.out.println(translateEng3(input));
 			} else if (input / 10 > 1 && input/10 <= 9) {//20~99,translateEng2+1
-				//label.setText(print2(input) + " "+ print1(input%10) );
 				System.out.println(translateEng2(input) + " " + translateEng(input));
 			} else if (input /10 >= 10){
-				System.out.println(translateEng4(input));
+				System.out.println(translateEng(input) + " " + translateEng4(input) + " " + translateEng2(input)+ " " + translateEng(input%10));
 			}
 	}
 	public static String translateEng4(int n) {//100
-		eng = "one hundred";
+		eng = "hundred";
 		return eng;
 		
 	}
@@ -69,12 +60,19 @@ public class IntToEng {
 	        case 9:
 	        	eng ="nineteen";
 	        	break;
+	        	
 	        	}
 	    	
 	        return eng;
     }
     public static String translateEng2(int n) {//10〜99
-    	switch (n/10) {
+    	if(n>9 && n<100){
+    		n /= 10;
+    	}else if(n>99){
+    		n /= 10;
+    		n %= 10;
+    	}
+    	switch (n) {
     	case 0:
     		break;
         case 2:
@@ -101,6 +99,8 @@ public class IntToEng {
         case 9:
         	eng ="ninety";
         	break;
+        default:
+        	eng ="";
     	}
     	return eng;
     }
@@ -108,13 +108,15 @@ public class IntToEng {
     // 数値を英訳する変換するメソッド
     public static String translateEng(int n) {//0〜9
     	
-    	if(n>9){
+    	if(n>9 && n<100){
     		n %= 10;
+    	}else if(n>99){
+    		n /= 100;
     	}
     	switch (n) {
-    	case 0:
-    		eng ="zero";
-    		break;
+       /* case 0:
+        	eng ="";
+        	break;*/
         case 1:
         	eng ="one";
         	break;
@@ -143,11 +145,8 @@ public class IntToEng {
         	eng ="nine";
         	break;
         default:
-        	eng ="?";
+        	eng ="";
         	}
-    	
-    	
-    	
         return eng;
     }
 

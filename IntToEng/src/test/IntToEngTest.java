@@ -40,8 +40,15 @@ public class IntToEngTest {
 	@Test
 	public void 整数値100がonehundredと変換される() {
 		IntToEng ite = new IntToEng();
-		String expected = "one hundred";
-		String actual = ite.translateEng4(100);
+		String expected = "one hundred  ";
+		String actual = ite.translateEng(100) +  " " + ite.translateEng4(100) +  " " + ite.translateEng2(100) +  " " + ite.translateEng(100%10);
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void 整数値234がonehundredと変換される() {
+		IntToEng ite = new IntToEng();
+		String expected = "two hundred thirty four";
+		String actual = ite.translateEng(234) +  " " + ite.translateEng4(234) +  " " + ite.translateEng2(234) +  " " + ite.translateEng(234%10);
 		assertThat(actual, is(expected));
 	}
 	
